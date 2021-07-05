@@ -17,15 +17,19 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
+    
+    private int status;
+    
+    private int score;
 
     /**
      * Create a machine that issues tickets of the given price.
      * Note that the price must be greater than zero, and there
      * are no checks to ensure this.
      */
-    public TicketMachine(int ticketCost)
+    public TicketMachine()
     {
-        price = ticketCost;
+        price = 1000;
         balance = 0;
         total = 0;
     }
@@ -75,4 +79,41 @@ public class TicketMachine
         // Clear the balance.
         balance = 0;
     }
+    public int getTotal()
+    {
+    return total;
+    }
+    public void setPrice(int ticketCost)
+    {
+        this.price = ticketCost;
+    }
+    /**
+     * Increase score by the given number of points.
+     */
+    public void increase(int points){
+    this.score = points + score;
+    }
+    
+    /**
+     * Reduce price by the given amount.
+     */
+    public void discount(int amount){
+    this.price = price - amount;
+    }
+  
+    public void prompt(){
+     System.out.println("Please insert the correct amount of money");
+    }
+    public void showPrice(){
+    System.out.println("The price of a ticket is " + price +" cents.");
+    }
+    public void empty(){
+    total=0; 
+    }
+    public TicketMachine(int price){
+        
+    }
+    
+    
+    
 }
